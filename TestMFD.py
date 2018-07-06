@@ -1,4 +1,4 @@
-#cd desktop/denoising
+#cd desktop/TrainMFDC
 
 
 import torch.optim as optim
@@ -73,23 +73,34 @@ torch.cuda.empty_cache()
 
 ##
 
-Data_preprocessing=MyRandomCrop(400)    
+#Data_preprocessing=MyRandomCrop(300)    
 testset ,testloader=0,0                                   
-testset = Burstfolder('./testc',0.1,8,Data_preprocessing,Randomnoise=False, loader= RGB_loader,loadram='cpu')
+testset = Burstfolder('./2',0.1,8,Randomnoise=False, loader= RGB_loader,loadram='cpu')
 testloader = torch.utils.data.DataLoader(testset, shuffle=False, batch_size=1,num_workers=0)
 
 ##
 
-Denoiser, optimizer = Load_model('./MFDC1')
-##
-
-Show_burst(Denoiser, testloader,5,chan=3,framerate=3,check=False)
-
+Denoiser, optimizer , loss = Load_modelloss('./MFDC4')
 
 ##
 
+SFD ,optimizer,loss2=Load_modelloss('./SSFD_C_NB10000')
+##
+
+Show_burst2(Denoiser,SFD, testloader,15,framerate=0.1,check=False)
 
 
+##
+
+
+plt.show()
+plt.ion()
+
+plt.figure(5)
+plt.clf()
+plt.plot(range(0,len(loss)),loss)
+
+##
 
 a=torch.cuda.memory_cached(device=None)
 

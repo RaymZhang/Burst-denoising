@@ -1,3 +1,4 @@
+#cd desktop/Burst-denoising
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
@@ -33,31 +34,26 @@ TO auto import modules
 
 ##
 
-Denoiser, optimizer = Load_model('./25SFD_C_NB75000')
+Denoiser, optimizer = Load_model('./SSFD_C_NB10000')
 
 ##
 
-Denoiser=MFD_C(Denoiser).cuda()
+Denoiser=SMFD_C(Denoiser).cuda()
 loss = nn.L1Loss().cuda()
 
+optimizer = optim.Adam(Denoiser.parameters(),lr=0.0001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0.00001, amsgrad=False)
+
+scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.9, patience=50, verbose=True, threshold=0.0001, threshold_mode='rel', cooldown=0, min_lr=0, eps=1e-08)
 
 
-
-optimizer = optim.Adam(Denoiser.parameters(),lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0.00001, amsgrad=False)
-
-
-scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.9, patience=200, verbose=True, threshold=0.0001, threshold_mode='rel', cooldown=0, min_lr=0, eps=1e-08)
-
-
-
-paths=['1','2','3']
+paths=['cl1','cl1']
 
 
 ##
 
 
 
-trainburstserveur(Denoiser,paths, loss, optimizer, scheduler, Nb_frames =8, num_epochs = 5, nb_subepoch=200 ,save_every=1)
+trainburstserveur(Denoiser,paths, loss, optimizer, scheduler, Nb_frames =8,batch_size=12, num_epochs = 4,nb_subepoch=50,save_every=1)
 
 
 

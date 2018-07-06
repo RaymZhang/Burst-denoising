@@ -36,6 +36,7 @@ class WINnetG(nn.Module):
         
         super(WINnetG, self).__init__()
         self.layer1=CONV_BN_RELU(in_channels=1, out_channels=128, kernel_size=7, stride=1, padding=3)
+        
         self.layer2=CONV_BN_RELU(in_channels=128, out_channels=128, kernel_size=7, stride=1, padding=3)
         self.layer3=CONV_BN_RELU(in_channels=128, out_channels=128, kernel_size=7, stride=1, padding=3)
         self.layer4=CONV_BN_RELU(in_channels=128, out_channels=128, kernel_size=7, stride=1, padding=3)
