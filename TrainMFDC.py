@@ -53,7 +53,7 @@ paths=['cl1','cl1']
 
 
 
-trainburstserveur(Denoiser,paths, loss, optimizer, scheduler, Nb_frames =8,batch_size=12, num_epochs = 4,nb_subepoch=50,save_every=1)
+trainburstserveur(Denoiser,paths, loss, optimizer, scheduler,"sMFDC" , Nb_frames =8,batch_size=12, num_epochs = 4,nb_subepoch=50,save_every=1)
 
 
 

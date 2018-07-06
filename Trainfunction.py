@@ -197,6 +197,9 @@ def trainburstserveur(model,paths, loss_fn, optimizer, scheduler,name, Nb_frames
     model.train()
     
     loss_history=[]
+    loss_sfd_history=[]
+    loss_mfd_history=[]
+    
     for epoch in range(num_epochs):
         print('Starting epoch %d / %d' % (epoch + 1, num_epochs))
         
@@ -228,23 +231,31 @@ def trainburstserveur(model,paths, loss_fn, optimizer, scheduler,name, Nb_frames
                         if i==0 :
                             i+=1
                             frame,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8 = model(frame,mfinit1,mfinit2,mfinit3,mfinit4,mfinit5,mfinit6,mfinit7,mfinit8)
-                            loss = loss_fn(frame,target)+loss_fn(mf8,target)
+                            loss_sfd = loss_fn(frame,target)
+                            loss_mfd = loss_fn(mf8,target)
                             
                         else:
                             frame,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8 = model(frame,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8)                        
-                            loss += loss_fn(frame,target)+loss_fn(mf8,target)
+                            loss_sfd += loss_fn(frame,target)
+                            loss_mfd += loss_fn(mf8,target)
+                    
+                    loss=loss_sfd+loss_mfd
                     
                     optimizer.zero_grad()
                     loss.backward()
                     optimizer.step()
                     
-                print('subepoch = %d, loss = %.4f' % (subepoch + 1, loss.data))
+                print('subepoch = %d, loss = %.4f,loss_sfd = %.4f,loss_mfd = %.4f' % (subepoch + 1, loss.data,loss_sfd.data,loss_mfd.data))
+                
+                loss_sfd_history.append(loss_sfd)
+                loss_mfd_history.append(loss_mfd)
                 loss_history.append(loss)
+                
                 scheduler.step(loss.data)
         
         print('epoch = %d, loss = %.4f' % (epoch + 1, loss.data))        
         if (epoch+1) % save_every == 0:
-                Save_modelloss(model,optimizer,loss_history,name+'%s ' %int(epoch+1))
+                Save_modelloss_mfd(model,optimizer,loss_history,loss_sfd_history,loss_mfd_history.append,name+'%s ' %int(epoch+1))
         
         
 ####

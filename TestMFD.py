@@ -35,38 +35,9 @@ TO auto import modules
 
 
 
-##
-
-Denoiser, optimizer = Load_model('./SFD_G_NB300000')
-
-##
-
-Denoiser=MFD_G(Denoiser).cuda()
-loss = nn.L1Loss().cuda()
-
-optimizer = optim.Adam(Denoiser.parameters(),lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0.00001, amsgrad=False)
-
-scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.9, patience=5000, verbose=True, threshold=0.0001, threshold_mode='rel', cooldown=0, min_lr=0, eps=1e-08)
 
 
 
-
-##
-
-Data_preprocessing=MyRandomCrop(64)                                        
-trainset = Burstfolder('./test',0.1,8,Data_preprocessing,Randomnoise=False, loader= L_loader,loadram='cpu')
-trainloader = torch.utils.data.DataLoader(trainset, shuffle=True, batch_size=1,num_workers=0)
-
-##
-
-
-
-trainburst(Denoiser,trainloader, loss, optimizer, scheduler, Nb_frames =8, num_epochs = 1000,save_every=1000,loss_every=1)
-
-
-##
-
-Save_model(Denoiser,optimizer,'testmf45d')
 ##
 torch.cuda.empty_cache()
 
@@ -75,12 +46,12 @@ torch.cuda.empty_cache()
 
 #Data_preprocessing=MyRandomCrop(300)    
 testset ,testloader=0,0                                   
-testset = Burstfolder('./2',0.1,8,Randomnoise=False, loader= RGB_loader,loadram='cpu')
+testset = Burstfolder('./cl1',0.1,8,Randomnoise=False, loader= RGB_loader,loadram='cpu')
 testloader = torch.utils.data.DataLoader(testset, shuffle=False, batch_size=1,num_workers=0)
 
 ##
 
-Denoiser, optimizer , loss = Load_modelloss('./MFDC4')
+Denoiser, optimizer , loss,loss_sfd,loss_mfd = Load_modelloss_mfd('./MFDC4')
 
 ##
 
