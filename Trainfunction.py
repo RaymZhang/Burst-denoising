@@ -190,7 +190,7 @@ def trainburst(model,loader_train, loss_fn, optimizer, scheduler, Nb_frames = 8,
 
 
 ##
-def trainburstserveur(model,paths, loss_fn, optimizer, scheduler, Nb_frames = 4,batch_size=10, num_epochs = 100,nb_subepoch=1000,save_every=1):
+def trainburstserveur(model,paths, loss_fn, optimizer, scheduler,name, Nb_frames = 4,batch_size=10, num_epochs = 100,nb_subepoch=1000,save_every=1):
     
     
     tic=time()
@@ -244,7 +244,7 @@ def trainburstserveur(model,paths, loss_fn, optimizer, scheduler, Nb_frames = 4,
         
         print('epoch = %d, loss = %.4f' % (epoch + 1, loss.data))        
         if (epoch+1) % save_every == 0:
-                Save_modelloss(model,optimizer,loss_history,'MFDC'+'%s ' %int(epoch+1))
+                Save_modelloss(model,optimizer,loss_history,name+'%s ' %int(epoch+1))
         
         
 ####
