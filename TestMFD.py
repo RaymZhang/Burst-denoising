@@ -1,4 +1,4 @@
-#cd desktop/TrainMFDC
+#cd desktop/Burst-denoising
 
 
 import torch.optim as optim
@@ -51,7 +51,7 @@ testloader = torch.utils.data.DataLoader(testset, shuffle=False, batch_size=1,nu
 
 ##
 
-Denoiser, optimizer , loss,loss_sfd,loss_mfd = Load_modelloss_mfd('./MFDC4')
+Denoiser, optimizer , loss = Load_modelloss('./MFDC1')
 
 ##
 

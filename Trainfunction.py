@@ -644,12 +644,12 @@ def Show_burst2(Denoiser,SFD,loader,pause, framerate =0.1, check=False):
                     plt.imshow(np.transpose(images,(1,2,0)))
                     plt.axis('off')
                     A=psnr(target[0].numpy(),images,check=check)
-                    plt.title(r'%f ' %A)
+                    plt.title(r'MSFD %f ' %A)
                     
                     PSNRmoyMSFDFirst+=A
                     
                     images=frame.data[0].cpu()
-                    print("Image 1 debruité MSFD")
+                    print("Image 1 debruité SFD")
                     plt.figure(4)
                     plt.clf()
                     images=np.clip(images.numpy(),0,1)
@@ -657,7 +657,7 @@ def Show_burst2(Denoiser,SFD,loader,pause, framerate =0.1, check=False):
                     plt.imshow(np.transpose(images,(1,2,0)))
                     plt.axis('off')
                     A=psnr(target[0].numpy(),images,check=check)
-                    plt.title(r'%f ' %A)
+                    plt.title(r'SFD %f ' %A)
                     
                     PSNRmoySFDFirst+=A
                     
@@ -671,7 +671,7 @@ def Show_burst2(Denoiser,SFD,loader,pause, framerate =0.1, check=False):
                     plt.imshow(np.transpose(images,(1,2,0)))
                     plt.axis('off')
                     A=psnr(target[0].numpy(),images,check=check)
-                    plt.title(r'%f ' %A)
+                    plt.title(r'MFD %f ' %A)
                     
                     PSNRmoyFirst+=A
                     
@@ -711,7 +711,7 @@ def Show_burst2(Denoiser,SFD,loader,pause, framerate =0.1, check=False):
                     plt.imshow(np.transpose(images,(1,2,0)))
                     plt.axis('off')
                     B=psnr(target[0].numpy(),images,check=check)
-                    plt.title(r'%f ' %B)
+                    plt.title(r'MSFD%f ' %B)
                     
                     
                     images=frame.data[0].cpu()
@@ -723,7 +723,7 @@ def Show_burst2(Denoiser,SFD,loader,pause, framerate =0.1, check=False):
                     plt.imshow(np.transpose(images,(1,2,0)))
                     plt.axis('off')
                     D=psnr(target[0].numpy(),images,check=check)
-                    plt.title(r'%f ' %D)
+                    plt.title(r'SFD%f ' %D)
                     
                                         
                     images=mf8.data[0].cpu()
@@ -735,7 +735,7 @@ def Show_burst2(Denoiser,SFD,loader,pause, framerate =0.1, check=False):
                     plt.imshow(np.transpose(images,(1,2,0)))
                     plt.axis('off')
                     A=psnr(target[0].numpy(),images,check=check)
-                    plt.title(r'%f ' %A)
+                    plt.title(r'MFD%f ' %A)
                     
                     torch.cuda.empty_cache()
                     plt.pause(framerate)
