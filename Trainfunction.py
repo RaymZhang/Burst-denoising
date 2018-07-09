@@ -7,6 +7,7 @@ import torch.optim as optim
 from torch.autograd import Variable
 from Savemodel import Save_model
 from Savemodel import Save_modelloss
+from Savemodel import Save_modelloss_mfd
 from PSNR import psnr
 from Mycudatransformation import MyRandomCrop
 from Burstload import Burstfolder
@@ -216,18 +217,18 @@ def trainburstserveur(model,paths, loss_fn, optimizer, scheduler,name, Nb_frames
             for subepoch in range(nb_subepoch):
                 tac=time()
                 if tac-tic > 36000 :
-                    Save_modelloss(model,optimizer,loss_history,'MFDC'+'%s ' %int(epoch+1))
+                    Save_modelloss(model,optimizer,loss_history,name+'%s ' %int(epoch+1))
                     tic=time()
                     
                 
         
                 for t, (x, y) in enumerate(trainloader):
                     
-                    x_var = Variable(torch.transpose(x.type(gpu_dtype),0,1))
-                    y_var = Variable(torch.transpose(y.type(gpu_dtype),0,1))
+                    x = Variable(torch.transpose(x.type(gpu_dtype),0,1))
+                    y = Variable(torch.transpose(y.type(gpu_dtype),0,1))
                     
                     i=0
-                    for frame,target in zip(x_var,y_var):
+                    for frame,target in zip(x,y):
                         if i==0 :
                             i+=1
                             frame,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8 = model(frame,mfinit1,mfinit2,mfinit3,mfinit4,mfinit5,mfinit6,mfinit7,mfinit8)
@@ -256,7 +257,60 @@ def trainburstserveur(model,paths, loss_fn, optimizer, scheduler,name, Nb_frames
         print('epoch = %d, loss = %.4f' % (epoch + 1, loss.data))        
         if (epoch+1) % save_every == 0:
                 Save_modelloss_mfd(model,optimizer,loss_history,loss_sfd_history,loss_mfd_history.append,name+'%s ' %int(epoch+1))
+ 
+ 
+####
+
+def trainburstserveur2(model,Dataloader, loss_fn, optimizer, scheduler,name, num_epochs = 200,save_every=100):
         
+    model.train()
+    
+    loss_history=[]
+    loss_sfd_history=[]
+    loss_mfd_history=[]
+    
+    mfinit1,mfinit2,mfinit3,mfinit4,mfinit5,mfinit6,mfinit7=torch.zeros(7,Dataloader.batch_size,64,64,64).cuda()
+    mfinit8=torch.zeros(Dataloader.batch_size,3,64,64).cuda()
+    
+    for epoch in range(num_epochs):
+        print('Starting epoch %d / %d' % (epoch + 1, num_epochs))
+        
+                
+            
+    
+        for t, (x, y) in enumerate(Dataloader):
+            
+            x = Variable(torch.transpose(x.type(gpu_dtype),0,1))
+            y = Variable(torch.transpose(y.type(gpu_dtype),0,1))
+            
+            i=0
+            for frame,target in zip(x,y):
+                if i==0 :
+                    i+=1
+                    frame,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8 = model(frame,mfinit1,mfinit2,mfinit3,mfinit4,mfinit5,mfinit6,mfinit7,mfinit8)
+                    loss_sfd = loss_fn(frame,target)
+                    loss_mfd = loss_fn(mf8,target)
+                    
+                else:
+                    frame,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8 = model(frame,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8)                        
+                    loss_sfd += loss_fn(frame,target)
+                    loss_mfd += loss_fn(mf8,target)
+            
+            
+            loss=loss_sfd+loss_mfd
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+                
+            loss_sfd_history.append(loss_sfd)
+            loss_mfd_history.append(loss_mfd)
+            loss_history.append(loss)
+            
+        scheduler.step(loss.data)
+    
+        print('epoch = %d, loss = %.4f,loss_sfd = %.4f,loss_mfd = %.4f' % (epoch + 1, loss.data,loss_sfd.data,loss_mfd.data))        
+        if (epoch+1) % save_every == 0:
+                Save_modelloss_mfd(model,optimizer,loss_history,loss_sfd_history,loss_mfd_history.append,name+'%s ' %int(epoch+1))
         
 ####
 
@@ -599,7 +653,7 @@ def Show_burst2(Denoiser,SFD,loader,pause, framerate =0.1, check=False):
         for t, (x,y) in enumerate(loader):
             
             x_var = Variable(torch.transpose(x.type(gpu_dtype),0,1),requires_grad=False)
-            y = torch.transpose(y,0,1)
+            y = Variable(torch.transpose(y,0,1),requires_grad=False)
             i=0
             
             for frame,target in zip(x_var,y):
