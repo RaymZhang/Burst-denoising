@@ -46,12 +46,12 @@ torch.cuda.empty_cache()
 
 #Data_preprocessing=MyRandomCrop(300)    
 testset ,testloader=0,0                                   
-testset = Burstfolder('./cl1',0.1,8,Randomnoise=False, loader= RGB_loader,loadram='cpu')
+testset = Burstfolder('./cl1lite',0.1,8,Randomnoise=False, loader= RGB_loader,loadram='cpu')
 testloader = torch.utils.data.DataLoader(testset, shuffle=False, batch_size=1,num_workers=0)
 
 ##
 
-Denoiser, optimizer , loss,loss_sfd,loss_mfd = Load_modelloss_mfd('./sMFDC4')
+Denoiser, optimizer , loss,loss_sfd,loss_mfd = Load_modelloss_mfd('./s3MFDC60')
 
 ##
 
@@ -67,9 +67,14 @@ Show_burst2(Denoiser,SFD, testloader,15,framerate=0.1,check=False)
 plt.show()
 plt.ion()
 
-plt.figure(5)
+plt.figure(11)
 plt.clf()
 plt.plot(range(0,len(loss)),loss)
+
+plt.figure(12)
+plt.clf()
+plt.plot(range(0,len(loss_sfd)),loss_sfd)
+plt.plot(range(0,len(loss_mfd)),loss_mfd)
 
 ##
 

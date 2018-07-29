@@ -302,15 +302,15 @@ def trainburstserveur2(model,Dataloader, loss_fn, optimizer, scheduler,name, num
             loss.backward()
             optimizer.step()
                 
-            loss_sfd_history.append(loss_sfd)
-            loss_mfd_history.append(loss_mfd)
-            loss_history.append(loss)
+        loss_sfd_history.append(loss_sfd)
+        loss_mfd_history.append(loss_mfd)
+        loss_history.append(loss)
             
         scheduler.step(loss.data)
     
         print('epoch = %d, loss = %.4f,loss_sfd = %.4f,loss_mfd = %.4f' % (epoch + 1, loss.data,loss_sfd.data,loss_mfd.data))        
         if (epoch+1) % save_every == 0:
-                Save_modelloss_mfd(model,optimizer,loss_history,loss_sfd_history,loss_mfd_history.append,name+'%s ' %int(epoch+1))
+                Save_modelloss_mfd(model,optimizer,loss_history,loss_sfd_history,loss_mfd_history,name+'%s ' %int(epoch+1))
         
 ####
 
