@@ -256,7 +256,7 @@ def trainburstserveur(model,paths, loss_fn, optimizer, scheduler,name, Nb_frames
         
         print('epoch = %d, loss = %.4f' % (epoch + 1, loss.data))        
         if (epoch+1) % save_every == 0:
-                Save_modelloss_mfd(model,optimizer,loss_history,loss_sfd_history,loss_mfd_history.append,name+'%s ' %int(epoch+1))
+                Save_modelloss_mfd(model,optimizer,loss_history,loss_sfd_history,loss_mfd_history,name+'%s ' %int(epoch+1))
  
  
 ####

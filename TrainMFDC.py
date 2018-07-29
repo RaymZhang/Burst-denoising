@@ -60,7 +60,7 @@ trainloader = torch.utils.data.DataLoader(trainset, shuffle=True,batch_size=8,dr
 
 
 
-trainburstserveur(Denoiser,paths, loss, optimizer, scheduler,"small2MFDC" , Nb_frames =8,batch_size=8, num_epochs = 4,nb_subepoch=500,save_every=1)
+trainburstserveur(Denoiser,paths, loss, optimizer, scheduler,"small2MFDC" , Nb_frames =8,batch_size=8, num_epochs = 4,nb_subepoch=500,save_every=2)
 
 
 
