@@ -17,8 +17,18 @@ The increase of the loss could be due to a probleme in memory management. When t
 
 TO DO:
  
-Implement a version trainingfunction that concatenate one denoised burst then computing the loss burst wise (and not imagewise)
+-Implement a version trainingfunction that concatenate one denoised burst then computing the loss burst wise (and not imagewise)
 
-Launch the training for a few days with the new clean dataset to see if we achieve to get some interesting results.
+-Launch the training for a few days with the new clean dataset to see if we achieve to get some interesting results.
 
-Learn about how pytorch manage memory
+-Learn about how pytorch manage memory
+
+GENERAL REMARKS ON DENOISING:
+-Because ot the padding none of the denoiser we implemented denoise the edge of the image (or crop) it doesn't really mather if the size of the crop are big but it could be good to compute the loss beetween the denoised and clean image minuse the edges...  
+
+
+
+
+
+
+
