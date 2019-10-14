@@ -1,0 +1,43 @@
+video-url       https://www.youtube.com/watch?v=3f0_OIL5ocU
+video-duration  107
+video-fps       24
+video-height    1080
+video-width     1920
+downsampling    2.000000000000000
+bursts-height   540
+bursts-width    960
+bursts-duration 0.666666686534882
+bursts-frames   16
+bursts-spacing  10
+burst 0 start 30
+burst 0 sigma0_factor 0.6
+burst 0 sigma0 0.572119951248169
+burst 0 sigma 0.990940809249878
+burst 1 start 40
+burst 1 sigma0_factor 0.6
+burst 1 sigma0 0.241627663373947
+burst 1 sigma 0.418511390686035
+burst 2 start 50
+burst 2 sigma0_factor 0.6
+burst 2 sigma0 0.551738202571869
+burst 2 sigma 0.955638587474823
+burst 3 start 60
+burst 3 sigma0_factor 0.6
+burst 3 sigma0 0.672159314155579
+burst 3 sigma 1.164214015007019
+burst 4 start 70
+burst 4 sigma0_factor 0.6
+burst 4 sigma0 0.572046220302582
+burst 4 sigma 0.990813076496124
+burst 5 start 80
+burst 5 sigma0_factor 0.6
+burst 5 sigma0 0.470619589090347
+burst 5 sigma 0.815137028694153
+burst 6 start 90
+burst 6 sigma0_factor 0.6
+burst 6 sigma0 0.511557042598724
+burst 6 sigma 0.886042773723602
+burst 7 start 100
+burst 7 sigma0_factor 0.6
+burst 7 sigma0 0.100131988525391
+burst 7 sigma 0.173433691263199

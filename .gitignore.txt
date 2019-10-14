@@ -1,0 +1,4 @@
+## No images
+*.png
+
+*.jpg

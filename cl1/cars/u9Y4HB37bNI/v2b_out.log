@@ -1,0 +1,31 @@
+video-url       https://www.youtube.com/watch?v=u9Y4HB37bNI
+video-duration  76
+video-fps       30
+video-height    1080
+video-width     1920
+downsampling    2.000000000000000
+bursts-height   540
+bursts-width    960
+bursts-duration 0.533333361148834
+bursts-frames   16
+bursts-spacing  10
+burst 0 start 30
+burst 0 sigma0_factor 0.6
+burst 0 sigma0 0.612995505332947
+burst 0 sigma 1.061739325523376
+burst 1 start 40
+burst 1 sigma0_factor 0.6
+burst 1 sigma0 0.592031359672546
+burst 1 sigma 1.025428414344788
+burst 2 start 50
+burst 2 sigma0_factor 0.6
+burst 2 sigma0 0.683972597122192
+burst 2 sigma 1.184675216674805
+burst 3 start 60
+burst 3 sigma0_factor 0.6
+burst 3 sigma0 0.669546902179718
+burst 3 sigma 1.159689188003540
+burst 4 start 70
+burst 4 sigma0_factor 0.6
+burst 4 sigma0 0.492847144603729
+burst 4 sigma 0.853636264801025

@@ -35,10 +35,10 @@ optimizer = optim.Adam(Denoiser.parameters(),lr=0.001, betas=(0.9, 0.999), eps=1
 scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.9, patience=5000, verbose=True, threshold=0.0001, threshold_mode='rel', cooldown=0, min_lr=0, eps=1e-08)
 
 Data_preprocessing=T.Compose([ T.RandomCrop(64),
-                                        T.ToTensor()])  
-                                        
-                                        
-                                        
+                                        T.ToTensor()])
+
+
+
 trainset = ImageFolderRAM('./BSD200G',0.1,Data_preprocessing,Randomnoise=False, loader= L_loader,loadram='cpu')
 trainloader = torch.utils.data.DataLoader(trainset, shuffle=True, batch_size=64,num_workers=0)
 

@@ -34,12 +34,12 @@ TO auto import modules
 
 ##
 
-Denoiser, optimizer = Load_model('./SSFD_C_NB10000')
+Denoiser, optimizer = Load_model('./SSFD_G_NBnew20000')
 
 ##
 
 Denoiser=SMFD_C(Denoiser).cuda()
-loss = nn.L1Loss(size_average=True, reduce=True).cuda()
+loss = nn.L1Loss().cuda()
 
 optimizer = optim.Adam(Denoiser.parameters(),lr=0.00001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0.00001, amsgrad=False)
 
@@ -49,10 +49,10 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0
 
 
 ##
-paths=['8','8']
+paths=['cl1']
 
 ##
-trainset = Burstfolder('cl1lite',0.1,8,MyRandomCrop(64),Randomnoise=False, loader= RGB_loader,loadram='cpu')
+trainset = Burstfolder('cl1lite', 0.1,8, MyRandomCrop(64),Randomnoise=False, loader = RGB_loader,loadram='cpu')
 trainloader = torch.utils.data.DataLoader(trainset, shuffle=True,batch_size=8,drop_last=True)
 
 
@@ -60,7 +60,7 @@ trainloader = torch.utils.data.DataLoader(trainset, shuffle=True,batch_size=8,dr
 
 
 
-trainburstserveur(Denoiser,paths, loss, optimizer, scheduler,"small2MFDC" , Nb_frames =8,batch_size=8, num_epochs = 4,nb_subepoch=500,save_every=2)
+trainburstserveur(Denoiser,paths, loss, optimizer, scheduler,"MFDCnew" , Nb_frames =8,batch_size=13, num_epochs = 5,nb_subepoch=100,save_every=1)
 
 
 
@@ -69,7 +69,7 @@ trainburstserveur(Denoiser,paths, loss, optimizer, scheduler,"small2MFDC" , Nb_f
 
 
 
-trainburstserveur2(Denoiser,trainloader, loss, optimizer, scheduler,"smallMFDC", num_epochs = 1000,save_every=100)
+trainburstserveur2(Denoiser,trainloader, loss, optimizer, scheduler,"smallMFDCnew", num_epochs = 1000,save_every=100)
 
 
 

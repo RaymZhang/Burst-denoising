@@ -1,0 +1,23 @@
+video-url       https://www.youtube.com/watch?v=X7skqrorpX0
+video-duration  55
+video-fps       24
+video-height    720
+video-width     1280
+downsampling    1.333333373069763
+bursts-height   540
+bursts-width    960
+bursts-duration 0.666666686534882
+bursts-frames   16
+bursts-spacing  10
+burst 0 start 30
+burst 0 sigma0_factor 0.2
+burst 0 sigma0 0.174141615629196
+burst 0 sigma 0.153578475117683
+burst 1 start 40
+burst 1 sigma0_factor 0.2
+burst 1 sigma0 0.229937702417374
+burst 1 sigma 0.202786013484001
+burst 2 start 50
+burst 2 sigma0_factor 0.2
+burst 2 sigma0 0.294174462556839
+burst 2 sigma 0.259437501430511

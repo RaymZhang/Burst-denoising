@@ -155,7 +155,7 @@ class ImageFolderRAM(data.Dataset):
         """
         
         if  self.loadram == 'cpu' :
-            img=self.imgs[index]
+            img=self.imgs[index].clone()
         else:
             path = self.imgs[index]
             img = self.loader(path)

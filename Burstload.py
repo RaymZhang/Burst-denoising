@@ -166,7 +166,7 @@ class Burstfolder(data.Dataset):
         """
         
         if  self.loadram == 'cpu' :
-            img=self.imgs[index]
+            img=self.imgs[index].clone()
             
             
         if self.Data_preprocessing is not None:            

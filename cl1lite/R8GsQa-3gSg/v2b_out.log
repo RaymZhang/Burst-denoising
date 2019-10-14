@@ -1,0 +1,91 @@
+video-url       https://www.youtube.com/watch?v=R8GsQa-3gSg
+video-duration  683
+video-fps       30
+video-height    1080
+video-width     1920
+downsampling    2.000000000000000
+bursts-height   540
+bursts-width    960
+bursts-duration 0.533333361148834
+bursts-frames   16
+bursts-spacing  33
+burst 0 start 30
+burst 0 sigma0_factor 0.6
+burst 0 sigma0 0.639964222908020
+burst 0 sigma 1.108450531959534
+burst 1 start 63
+burst 1 sigma0_factor 0.6
+burst 1 sigma0 0.304135113954544
+burst 1 sigma 0.526777446269989
+burst 2 start 96
+burst 2 sigma0_factor 0.6
+burst 2 sigma0 0.328975021839142
+burst 2 sigma 0.569801449775696
+burst 3 start 129
+burst 3 sigma0_factor 0.6
+burst 3 sigma0 0.152337253093719
+burst 3 sigma 0.263855844736099
+burst 4 start 162
+burst 4 sigma0_factor 0.6
+burst 4 sigma0 0.467734485864639
+burst 4 sigma 0.810139894485474
+burst 5 start 195
+burst 5 sigma0_factor 0.6
+burst 5 sigma0 0.528037905693054
+burst 5 sigma 0.914588451385498
+burst 6 start 228
+burst 6 sigma0_factor 0.6
+burst 6 sigma0 0.273501336574554
+burst 6 sigma 0.473718196153641
+burst 7 start 261
+burst 7 sigma0_factor 0.6
+burst 7 sigma0 0.327539116144180
+burst 7 sigma 0.567314386367798
+burst 8 start 294
+burst 8 sigma0_factor 0.6
+burst 8 sigma0 0.618121504783630
+burst 8 sigma 1.070617794990540
+burst 9 start 327
+burst 9 sigma0_factor 0.6
+burst 9 sigma0 0.444256782531738
+burst 9 sigma 0.769475281238556
+burst 10 start 360
+burst 10 sigma0_factor 0.6
+burst 10 sigma0 0.406155854463577
+burst 10 sigma 0.703482568264008
+burst 11 start 393
+burst 11 sigma0_factor 0.6
+burst 11 sigma0 0.623260855674744
+burst 11 sigma 1.079519391059875
+burst 12 start 426
+burst 12 sigma0_factor 0.6
+burst 12 sigma0 0.157710939645767
+burst 12 sigma 0.273163348436356
+burst 13 start 459
+burst 13 sigma0_factor 0.6
+burst 13 sigma0 0.613367021083832
+burst 13 sigma 1.062382817268372
+burst 14 start 492
+burst 14 sigma0_factor 0.6
+burst 14 sigma0 0.572888076305389
+burst 14 sigma 0.992271244525909
+burst 15 start 525
+burst 15 sigma0_factor 0.6
+burst 15 sigma0 0.300717771053314
+burst 15 sigma 0.520858466625214
+burst 16 start 558
+burst 16 sigma0_factor 0.6
+burst 16 sigma0 0.332330465316772
+burst 16 sigma 0.575613260269165
+burst 17 start 591
+burst 17 sigma0_factor 0.6
+burst 17 sigma0 0.248314976692200
+burst 17 sigma 0.430094152688980
+burst 18 start 624
+burst 18 sigma0_factor 0.6
+burst 18 sigma0 0.367782145738602
+burst 18 sigma 0.637017369270325
+burst 19 start 657
+burst 19 sigma0_factor 0.6
+burst 19 sigma0 0.349010318517685
+burst 19 sigma 0.604503571987152
