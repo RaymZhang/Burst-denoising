@@ -51,7 +51,7 @@ testloader = torch.utils.data.DataLoader(testset, shuffle=False, batch_size=1,nu
 
 ##
 
-Denoiser, optimizer , loss,loss_sfd,loss_mfd = Load_modelloss_mfd('./small2MFDCnew8')
+Denoiser, optimizer , loss,loss_sfd,loss_mfd = Load_modelloss_mfd('./MFDCnew5')
 
 ##
 
