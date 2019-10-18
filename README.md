@@ -1,9 +1,9 @@
 # Burst-denoising
 Reproducing the results of https://arxiv.org/abs/1712.057907
 
-The code to reproduce the training database is available here: https://github.com/cmla/f16-video-set
+The code to reproduce the training database for the bursts is available here: https://github.com/cmla/f16-video-set
 
-
+Pytorch version : 1.0
 
 TO DO:
  

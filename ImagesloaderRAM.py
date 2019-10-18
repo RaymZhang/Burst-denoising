@@ -99,7 +99,6 @@ def make_dataset_ram(dir,loader=RGB_loader):
     images=[]
     for i in path:
         images.append(loader(i))
-    
     return(images)
 
 
@@ -155,7 +154,7 @@ class ImageFolderRAM(data.Dataset):
         """
         
         if  self.loadram == 'cpu' :
-            img=self.imgs[index].clone()
+            img=self.imgs[index]
         else:
             path = self.imgs[index]
             img = self.loader(path)

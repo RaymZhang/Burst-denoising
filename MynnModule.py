@@ -123,11 +123,6 @@ class CDNCNN_B(nn.Module):
         
         return(out)
 
-##
-
-
-
-
     
 class SFD_G(nn.Module):
     def __init__(self):

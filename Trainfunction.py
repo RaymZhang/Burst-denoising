@@ -314,7 +314,12 @@ def trainburstserveur2(model, Dataloader, loss_fn, optimizer, scheduler, name, n
 ####
 
 
-"""
+
+
+
+def Show_result(Denoiser, loader, pause, check =False):
+
+	"""
 Fonction permettant de montrer les resultats de debuitages d'un reseau de neuronnes
 Input :
 	- model : reseau à tester
@@ -328,9 +333,6 @@ Affiche :
 	-L'image debruité
 	-Les PSNR
 """
-
-
-def Show_result(Denoiser, loader, pause, check =False):
 	Denoiser.eval()
 	 
 	plt.ion()
@@ -378,7 +380,11 @@ def Show_result(Denoiser, loader, pause, check =False):
 	print('PSNR moyen = %f '%(PSNRmoy/Compteur))
 
 
-"""
+
+	
+def Show_result2(Denoiser1,Denoiser2, loader, pause,check=False):
+
+	"""
 Fonction permettant de comparer les resultats de debuitages d'un reseau de neuronnes
 Input :
 	- Denoiser1 : debruiteur 1 à tester
@@ -394,8 +400,6 @@ Affiche :
 	- L'image debruité par 2
 	- Les PSNR
 """    
-	
-def Show_result2(Denoiser1,Denoiser2, loader, pause,check=False):
 	Denoiser1.eval()
 	Denoiser2.eval()
 	 
