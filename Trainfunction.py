@@ -226,14 +226,14 @@ def trainburstserveur(model, paths, loss_fn, optimizer, scheduler, name, Nb_fram
 							i+=1
 							dframe,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8 = model(frame,mfinit1,mfinit2,mfinit3,mfinit4,mfinit5,mfinit6,mfinit7,mfinit8)
 							loss_sfd = 0
-							loss_sfd = nn.L1Loss().cuda()(dframe,target)
-							loss_mfd = nn.L1Loss().cuda()(mf8,target)
+							loss_sfd = loss_fn(dframe,target)
+							loss_mfd = loss_fn(mf8,target)
 							
 							
 						else:
 							dframe,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8 = model(frame,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8)                        
-							loss_sfd = loss_sfd + nn.L1Loss().cuda()(dframe,target)
-							loss_mfd = loss_mfd + nn.L1Loss().cuda()(mf8,target)
+							loss_sfd += loss_fn(dframe,target)
+							loss_mfd += loss_fn(mf8,target)
 					
 					loss=loss_sfd+loss_mfd
 					
