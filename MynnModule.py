@@ -174,7 +174,7 @@ class SFD_C(nn.Module):
         self.layer7=CONV_BN_RELU(in_channels=64, out_channels=64, kernel_size=3, stride=1, padding=1)
         
         self.layer8=nn.Conv2d(64,3,3,stride=1,padding=1)
-        self.layer9=nn.BatchNorm2d(1)
+        #self.layer9=nn.BatchNorm2d(1)
         
         
         
@@ -190,8 +190,8 @@ class SFD_C(nn.Module):
         out=self.layer6(out)
         out=self.layer7(out)
         out=self.layer8(out)
-        out=self.layer9(out)
-        out += x
+        #out=self.layer9(out) no BN at the end, no res learning
+        #out += x
         return out
         
         
@@ -329,7 +329,7 @@ class MFD_C(nn.Module):
         self.S6=SFD.layer6
         self.S7=SFD.layer7
         self.S8=SFD.layer8
-        self.S9=SFD.layer9
+        #self.S9=SFD.layer9
         
         self.M1=CONV_BN_RELU(in_channels=128, out_channels=64, kernel_size=3, stride=1, padding=1)
         self.M2=CONV_BN_RELU(in_channels=192, out_channels=64, kernel_size=3, stride=1, padding=1) 
@@ -339,7 +339,7 @@ class MFD_C(nn.Module):
         self.M6=CONV_BN_RELU(in_channels=192, out_channels=64, kernel_size=3, stride=1, padding=1)        
         self.M7=CONV_BN_RELU(in_channels=192, out_channels=64, kernel_size=3, stride=1, padding=1)
         self.M8=nn.Conv2d(in_channels=70, out_channels=3, kernel_size=3, stride=1, padding=1) 
-        self.M9=nn.BatchNorm2d(3) 
+        #self.M9=nn.BatchNorm2d(3) 
         
         nn.init.kaiming_normal_(self.M1.conv.weight, a=0, mode='fan_in', nonlinearity='relu')
         nn.init.kaiming_normal_(self.M2.conv.weight, a=0, mode='fan_in', nonlinearity='relu')
@@ -366,10 +366,10 @@ class MFD_C(nn.Module):
         out=self.S7(out)
         mf7=self.M7(torch.cat([out,mf6,mf7],dim=1))
         out=self.S8(out)
-        out=self.S9(out)
-        mf8=self.M9(self.M8(torch.cat([out,mf7,mf8],dim=1)))
-        mf8 += x
-        out += x
+        #out=self.S9(out)
+        mf8=self.M8(torch.cat([out,mf7,mf8],dim=1))
+        #mf8 += x
+        #out += x
         
         return out,mf1,mf2,mf3,mf4,mf5,mf6,mf7,mf8
         
