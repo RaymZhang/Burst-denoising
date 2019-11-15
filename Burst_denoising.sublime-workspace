@@ -8,37 +8,28 @@
 	"buffers":
 	[
 		{
-			"file": "Test_denoiser.py",
-			"settings":
-			{
-				"buffer_size": 2199,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "TrainMFDC.py",
-			"settings":
-			{
-				"buffer_size": 1510,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "README.md",
 			"settings":
 			{
 				"buffer_size": 409,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": ".gitignore.txt",
+			"file": "MynnModule.py",
 			"settings":
 			{
-				"buffer_size": 32,
+				"buffer_size": 18014,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Mycudatransformation.py",
+			"settings":
+			{
+				"buffer_size": 645,
 				"line_ending": "Unix"
 			}
 		}
@@ -139,7 +130,7 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/rzhang/Desktop/Burst-denoising"
+		"/C/Users/Rzhang/Desktop/Burst-denoising"
 	],
 	"file_history":
 	[
@@ -193,64 +184,6 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Test_denoiser.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2199,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1115,
-								1175
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 520.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "TrainMFDC.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1510,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1223,
-								1368
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 568.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "README.md",
 					"semi_transient": false,
 					"settings":
@@ -262,8 +195,8 @@
 						"selection":
 						[
 							[
-								234,
-								234
+								0,
+								0
 							]
 						],
 						"settings":
@@ -274,35 +207,65 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": ".gitignore.txt",
+					"buffer": 1,
+					"file": "MynnModule.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 32,
+						"buffer_size": 18014,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								32,
-								32
+								14932,
+								14932
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4368.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Mycudatransformation.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

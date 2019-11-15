@@ -46,19 +46,19 @@ torch.cuda.empty_cache()
 
 #Data_preprocessing=MyRandomCrop(300)
 testset ,testloader=0,0
-testset = Burstfolder('./8',0.1,8,Randomnoise=False, loader= RGB_loader,loadram='cpu')
+testset = Burstfolder('./8',0.2,8,Randomnoise=False, loader= RGB_loader,loadram='cpu')
 testloader = torch.utils.data.DataLoader(testset, shuffle=False, batch_size=1,num_workers=0)
 
 ##
 
-Denoiser, optimizer , loss,loss_sfd,loss_mfd = Load_modelloss_mfd('./MFDCnew5')
+Denoiser, optimizer , loss,loss_sfd,loss_mfd = Load_modelloss_mfd('./MFDCnewre27')
 
 ##
 
-SFD ,optimizer,loss2=Load_modelloss('./SSFD_G_NBnew20000')
+SFD ,optimizer,loss2=Load_modelloss('./SFD_C_NB15000')
 ##
 
-Show_burst2(Denoiser,SFD, testloader,10,framerate=0.1, tour = 1 ,check=False)
+Show_burst2(Denoiser,SFD, testloader,10,framerate=2, tour = 1 ,check=False)
 
 
 ##
